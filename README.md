@@ -42,7 +42,11 @@ Or if the database is Movie then:
 |Movie|UserId|Quantity|          
 |-----|------|--------|          
 |War|777   |4       |          
-|Cartoon|992   |8       |          
+|Cartoon|992   |8       |    
+
+* Method #4: `getItemsByType(RecombeeDBType db, String ItemType)` this method returns item list by its type. first it checks if the   item is from Movie or from food.     
+* Method #5 `getAllItem(RecombeeDBType db)` it first checks if the asked items are from movie or from food. then it returns the list   of all the items.    
+* Method #6 `getItemRatings(RecombeeDBType db, String itemId)` this method returns the list of all the ratings of the item.  
 
 
 
