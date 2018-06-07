@@ -29,7 +29,7 @@ there is a method:
 String getEndpointURL() which returns the end url    
 and then there is the main method which calls on the EndpointURL.and publish things on that end point URL.    
 
-in the model package there are 4 classes.     
+in the "model" package there are 4 classes.       
 1.Evaluation.java :     
 It has the following attributes      
  -String userId;    
@@ -89,6 +89,12 @@ Or if the database is Movie then:
 * Method #5 `getRec4User(RecombeeClient client, String userId, int quantity)` gets recommendation according to user preferences.  
 * Method #6 `setRecombeeClient(String clientId, String password)` here setting the recombee client . it resets reset DataBase,  
 adds item property and then add user property.  
+
+### RecombeeDBType.java  
+It has two database type 1)Food 2)Movie. it has an attribute "String name" for which there is  getter and setter.  
+* Method #1 `getAll()` which returns the list of all databases.  
+* Method #2 `fromString(String text)` it returns the type of database i.e movie or Food.  
+
 
 
 
