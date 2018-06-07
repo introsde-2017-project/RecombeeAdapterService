@@ -25,6 +25,10 @@ public class RecombeeImpl implements RecombeeInterface{
 	static RecombeeClient movieDB;
 	
 	public RecombeeImpl() {
+
+		foodDB= Recombee.setRecombeeClient("introsde-food","rntjKxWkHt56geGH7uF25kVSt4dQhAHx9jPS3v1yId7zZwEQUMlxvpFxxGLn3OMc");
+
+		movieDB= Recombee.setRecombeeClient("introsde-movie","vFHY4J18WnyMsM3kA550soX5HIGiID0ctFiBvFAHcbdu13EY9G7Gh1jr60cUN7Pg");
 		//initDB(RecombeeDBType.foodDB);
 		//initDB(RecombeeDBType.movieDB);
 	}
@@ -176,11 +180,9 @@ public class RecombeeImpl implements RecombeeInterface{
 	@Override
 	public boolean initDB(RecombeeDBType db) {
 		if(db.equals(RecombeeDBType.foodDB)) {
-			foodDB= Recombee.setRecombeeClient("introsde-food","rntjKxWkHt56geGH7uF25kVSt4dQhAHx9jPS3v1yId7zZwEQUMlxvpFxxGLn3OMc");
 			return Init.initFoodDB();
 		}
 		else {
-			movieDB= Recombee.setRecombeeClient("introsde-movie","vFHY4J18WnyMsM3kA550soX5HIGiID0ctFiBvFAHcbdu13EY9G7Gh1jr60cUN7Pg");
 			return Init.initMovieDB();
 		}
 	}
