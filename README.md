@@ -23,11 +23,11 @@ here is how the recombee User and item data structured:
 * Method #1: `addNewUser(DBType, userId, preferences)` DBType can be RecombeeFood/RecombeeMovie and preferences can be list of FoodTypes/MovieGenres.  
  
 * Method #2:  `addNewRating(RecombeeDBType db, Evaluation rating)` through this method items are rated by user with id UserId . this method tells us who rated which item at what time and stores it in the database.   
-|UserId |ItemId |Rating |Time   |  
-|-------|-------|-------|-------|  
-|-------|-------|-------|-------|  
-|-------|-------|-------|-------|  
-|-------|-------|-------|-------|  
+|UserId |ItemId |Rating |Time   |    
+|--------|--------|--------|-------|      
+|--------|--------|--------|-------|      
+|--------|--------|--------|-------|      
+|--------|--------|--------|-------|      
 
 ### Recombee.java
 * Method #1: `addNewUser(RecombeeClient, userId , preferences)` it persists the data to Remote Recombee DB, Recombee throws ApiException if unsuccessfull.  
