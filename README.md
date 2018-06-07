@@ -47,13 +47,16 @@ Or if the database is Movie then:
 * Method #4: `getItemsByType(RecombeeDBType db, String ItemType)` this method returns item list by its type. first it checks if the   item is from Movie or from food.     
 * Method #5 `getAllItem(RecombeeDBType db)` it first checks if the asked items are from movie or from food. then it returns the list   of all the items.    
 * Method #6 `getItemRatings(RecombeeDBType db, String itemId)` this method returns the list of all the ratings of the item.  
-
-
-
+* Method # 7 `initDB(RecombeeDBType db)` This method first check if the parameter db is movie it initialize the movie database   otherwise it initialize the Food database.   
 
 ### Recombee.java
 * Method #1: `addNewUser(RecombeeClient, userId , preferences)` it persists the data to Remote Recombee DB, Recombee throws ApiException if unsuccessfull.  
-* Method #2:
+* Method #2: `addNewUser(RecombeeClient client, String userId, ArrayList<String> preitem)` Adds new user with prefered items.
+* Method #3" `addNewRating(RecombeeClient client, String user_id, String item_id, double item_rating, Date time)` adds rating for   given item by user at given time.    
+* Method #4 `getItemRatings(RecombeeClient client, String item_id)`  gets item rating given item ID.  
+* Method #5 `getRec4User(RecombeeClient client, String userId, int quantity)` gets recommendation according to user preferences.  
+* Method #6 `setRecombeeClient(String clientId, String password)` here setting the recombee client . it resets reset DataBase,  
+adds item property and then add user property.  
 
 
 
