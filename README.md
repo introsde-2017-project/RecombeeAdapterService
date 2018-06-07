@@ -39,10 +39,10 @@ here is how the recombee User and item data structured:
 
 Or if the database is Movie then: 
 
-|UserId|Quantity|        
-|------|--------|        
-|777   |4       |        
-|992   |8       |        
+|Movie|UserId|Quantity|          
+|-----|------|--------|          
+|War|777   |4       |          
+|Cartoon|992   |8       |          
 
 
 
