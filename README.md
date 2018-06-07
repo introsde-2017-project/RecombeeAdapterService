@@ -20,7 +20,7 @@ here is how the recombee User and item data structured:
 //TODO add tables of recombee DB.  
 
 * In the constructor it initalized the RecombeeFood and RecombeeMovie remote DataBases.  
-* Method #1: `addNewUser(DBType, userId, preferences)` DBType can be RecombeeFood/RecombeeMovie and preferences can be list of FoodTypes/MovieGenres.  
+* Method #1: `addUser(DBType, userId, preferences)` DBType can be RecombeeFood/RecombeeMovie and preferences can be list of FoodTypes/MovieGenres.  
  
 * Method #2:  `addNewRating(RecombeeDBType db, Evaluation rating)` through this method items are rated by user with id UserId . this method tells us who rated which item at what time and stores it in the database.   
 
@@ -28,7 +28,16 @@ here is how the recombee User and item data structured:
 |-------|--------|--------|--------|    
 |123    |777     |9.5     |12.00   |    
 |333    |999     |7.9     |10.00   |    
-       
+* Method #3 `getRecommendations(RecombeeDBType db, String userId, int quantity)` This method recommends number of items to the user   with Userid.First it checks if the database is food or movie then recommend items accordingly.  
+|Food|UserId|Quanity|    
+|----|------|-------|    
+|Pasta|9115|7    
+Or if the database is Movie then:  
+|Movie|UserId|Quantity|  
+|----|------|---------|  
+|Salt|777|4|  
+
+
 
 ### Recombee.java
 * Method #1: `addNewUser(RecombeeClient, userId , preferences)` it persists the data to Remote Recombee DB, Recombee throws ApiException if unsuccessfull.  
