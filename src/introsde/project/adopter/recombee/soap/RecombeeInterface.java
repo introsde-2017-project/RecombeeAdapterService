@@ -103,11 +103,11 @@ public interface RecombeeInterface {
 //    		@WebParam(name="dbName") RecombeeDBType db
 //    		);
 //	
-//	@WebMethod(operationName="initBD")
-//	@WebResult(name="boolean") 
-//    public boolean initDB(
-//    		@WebParam(name="dbName") RecombeeDBType db
-//    		);
+	@WebMethod(operationName="initBD")
+	@WebResult(name="boolean") 
+    public boolean initDB(
+    		@WebParam(name="dbName") RecombeeDBType db
+    		);
 	
 	
 //	@WebMethod(operationName="addFoodBatch")
