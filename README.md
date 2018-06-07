@@ -20,12 +20,12 @@ here is how the recombee User and item data structured:
 //TODO add tables of recombee DB.  
 
 * In the constructor it initalized the RecombeeFood and RecombeeMovie remote DataBases.  
-* Method #1: addNewUser(DBType, userId, preferences) DBType can be RecombeeFood/RecombeeMovie and preferences can be list of FoodTypes/MovieGenres.  
+* Method #1: `addNewUser(DBType, userId, preferences)` DBType can be RecombeeFood/RecombeeMovie and preferences can be list of FoodTypes/MovieGenres.  
 
 * Method #2:  
 
 ### Recombee.java
-* Method #1: addNewUser(RecombeeClient, userId , preferences) it persists the data to Remote Recombee DB, Recombee throws ApiException if unsuccessfull.  
+* Method #1: `addNewUser(RecombeeClient, userId , preferences)` it persists the data to Remote Recombee DB, Recombee throws ApiException if unsuccessfull.  
 * Method #2:
 
 
