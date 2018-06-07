@@ -13,7 +13,7 @@ Client Git riop:
   
 ## Implementation:  
 
-In this reipository there are some files and packages and classes. There are three packages in this this project.  
+In this repository there are some files and packages and classes. There are three packages in this this project.  
 1.init  
 2.model  
 3.soap  
