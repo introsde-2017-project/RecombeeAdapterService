@@ -31,11 +31,11 @@ here is how the recombee User and item data structured:
 * Method #3 `getRecommendations(RecombeeDBType db, String userId, int quantity)` This method recommends number of items to the user   with Userid.First it checks if the database is food or movie then recommend items accordingly.  
 |Food|UserId|Quanity|    
 |----|------|-------|    
-|Pasta|9115|7    
+|Pasta|9115 |7      |       
 Or if the database is Movie then:  
 |Movie|UserId|Quantity|  
 |----|------|---------|  
-|Salt|777|4|  
+|Salt|777   |4        |    
 
 
 
