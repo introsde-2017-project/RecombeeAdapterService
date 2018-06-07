@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence 
+	version="2.1" 
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	
+	<persistence-unit name="introsde_project_data" transaction-type="RESOURCE_LOCAL">
+	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+	
+	<properties>
+            <!-- The jdbc driver we will use to connect to the database -->
+            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />
+            <!-- The last part of the url is the path to the sqlite file of the db, 
+				in this case it should be on the root folder of the project -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:project2017DB.db" />
+            <!-- Debugging information level -->
+            <property name="eclipselink.logging.level" value="INFO" />
+            <!-- we will use this to automatically add elements to our database if 
+				we modify the Java model -->
+			<!--<property name="eclipselink.ddl-generation" value="create-or-extend-tables" />-->
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+            <!--  Specify the target database of the application -->
+            <property name="eclipselink.target-database" value="database"/>
+     </properties>      
+	</persistence-unit>
+</persistence>
