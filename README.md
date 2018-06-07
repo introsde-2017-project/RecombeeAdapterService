@@ -1,33 +1,42 @@
-Identification:
-NAME: Cheema Danish Asghar
-EMAIL: danishasghar.cheema@studenti.unitn.it
+# Identification:  
+NAME: Cheema Danish Asghar  
+EMAIL: danishasghar.cheema@studenti.unitn.it  
+  
+Client Code Done by:  
+NAME: Main muhammad faheem - Jan  
+EMAIL:main.jan@unitn.it  
+  
+Server heroku ULR:  
+Server Git ripo:  
+  
+Client Git riop:  
+  
+## Implementation:  
+### RecombeeImpl.java
+This Class Implements RecombeeInterface Class which overrides all the methods defined in that class for soap webService.  
+  
+* at first deply to heroku it initialize the data to recombee DB by reading the json files.  
+here is how the recombee User and item data structured:  
+//TODO add tables of recombee DB.  
 
-Client Code Done by:
-NAME: Main muhammad faheem - Jan
-EMAIL:main.jan@unitn.it
+* In the constructor it initalized the RecombeeFood and RecombeeMovie remote DataBases.  
+* Method #1: addNewUser(DBType, userId, preferences) DBType can be RecombeeFood/RecombeeMovie and preferences can be list of FoodTypes/MovieGenres.  
 
-Server heroku ULR:
-Server Git ripo:
+* Method #2:  
 
-Client Git riop:
+### Recombee.java
+* Method #1: addNewUser(RecombeeClient, userId , preferences) it persists the data to Remote Recombee DB, Recombee throws ApiException if unsuccessfull.  
+* Method #2:
 
-Implementation:
-RecombeeImpl.java
-This Class Implements RecombeeInterface Class which overrides all the methods defined in that class for soap webService.
 
-at first deply to heroku it initialize the data to recombee DB by reading the json files.
-here is how the recombee User and item data structured:
-//TODO add tables of recombee DB.
 
-In the constructor it initalized the RecombeeFood and RecombeeMovie remote DataBases.
 
-Method #1: addNewUser(DBType, userId, preferences) DBType can be RecombeeFood/RecombeeMovie and preferences can be list of FoodTypes/MovieGenres.
 
-Method #2:
 
-Recombee.java
-Method #1: addNewUser(RecombeeClient, userId , preferences) it persists the data to Remote Recombee DB, Recombee throws ApiException if unsuccessfull.
-Method #2:
+
+
+
+
 In this reipository there are some files and packages and classes. There are three packages in this this project.
 1.init
 2.model
