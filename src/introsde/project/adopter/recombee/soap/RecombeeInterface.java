@@ -28,15 +28,7 @@ public interface RecombeeInterface {
 			@WebParam(name="userId") String userId,
 			@WebParam(name="preitem") ArrayList<String> preitem
 			);
-	
-//	@WebMethod(operationName="additem")
-//    @WebResult(name="String") 
-//	public ItemObject addItem(
-//			@WebParam(name="dbName") RecombeeDBType db,
-//			@WebParam(name="itemId") String itemId,
-//			@WebParam(name="itemType") String itemType,
-//			@WebParam(name="location") String location
-//			);	
+		
 	
 	@WebMethod(operationName="addRating")
     @WebResult(name="boolean") 
@@ -44,14 +36,6 @@ public interface RecombeeInterface {
     		@WebParam(name="dbName") RecombeeDBType db,
     		@WebParam(name="rating") Evaluation rating
     		);
-	
-//	@WebMethod(operationName="modifyRating")
-//    @WebResult(name="boolean") 
-//    public boolean modifyRating(
-//    		@WebParam(name="dbName") RecombeeDBType db,
-//    		@WebParam(name="rating") Evaluation rating
-//    		);
-	
 	
 	
 	@WebMethod(operationName="getUserRatings")
@@ -69,12 +53,6 @@ public interface RecombeeInterface {
     		@WebParam(name="quantity") int quantity
     		);
 	
-//	@WebMethod(operationName="getItem")
-//    @WebResult(name="ListOfPropertiesofItems") 
-//    public ItemObject getItem(
-//    		@WebParam(name="dbName") RecombeeDBType db,
-//    		@WebParam(name="itemName") String ItemName
-//    		);
 	
 	@WebMethod(operationName="getItemsByType")
     @WebResult(name="StringList") 
@@ -97,29 +75,10 @@ public interface RecombeeInterface {
     		);
 	
 	
-//	@WebMethod(operationName="resetBD")
-//	@WebResult(name="boolean") 
-//    public boolean resetDB(
-//    		@WebParam(name="dbName") RecombeeDBType db
-//    		);
-//	
 	@WebMethod(operationName="initBD")
 	@WebResult(name="boolean") 
     public boolean initDB(
     		@WebParam(name="dbName") RecombeeDBType db
     		);
-	
-	
-//	@WebMethod(operationName="addFoodBatch")
-//    @WebResult(name="int") 
-//    public int addFoodBatch(
-//    		@WebParam(name="interactions") ArrayList<Request> interactions
-//    		);
-//	
-//	@WebMethod(operationName="addMovieBatch")
-//    @WebResult(name="int") 
-//    public int addMovieBatch(
-//    		@WebParam(name="interactions") ArrayList<Request> interactions
-//    		);
 
 }

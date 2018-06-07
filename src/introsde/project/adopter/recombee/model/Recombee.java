@@ -47,25 +47,7 @@ public class Recombee{
 			return false;
 		}
 
-//	//add new item
-//	public static ItemObject addNewItem(RecombeeClient client, String itemId, String Type, String location) {
-//		//check if item already exists
-//		if(getItem(client,itemId)!=null)
-//			return null;
-//		
-//		HashMap<String, Object> map= new HashMap<String,Object>();
-//		map.put("Type", Type);
-//		map.put("Location", location);
-//	   	SetItemValues r= new SetItemValues(itemId,map).setCascadeCreate(true);
-//    	try {
-//			client.send(r);
-//			//TimeUnit.SECONDS.sleep(5);
-//			return getItem(client,itemId);
-//		} catch (ApiException e) {
-//			e.printStackTrace();
-//		} 
-//		return null;
-//	}
+
 
 	//add rating for given item by user
     public static boolean addNewRating(RecombeeClient client, String user_id, String item_id, double item_rating, Date time){
@@ -90,28 +72,6 @@ public class Recombee{
 		
 	}
     
-//    //modify rating
-//    public static boolean modifyRating(RecombeeClient client, String user_id, String item_id, double item_rating, Date time){
-//    	//Date time =  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(LocalDateTime.now().toString());
-//    	try {
-//    		//TimeUnit.SECONDS.sleep(1);
-//    		//if user and item doesn't exist in DB return false
-//    		if(getItem(client,item_id)==null || getUser(client,user_id)==null)
-//    			return false;
-//    		
-//    		//find the old ratings and modify it
-//    		for(Rating r:client.send(new ListUserRatings(user_id))){
-//    			if(item_id.equals(r.getItemId())) {
-//    				client.send(new DeleteRating(user_id, item_id));
-//    				client.send(new AddRating(user_id,item_id,item_rating).setTimestamp(time));
-//    				return true;
-//    			}
-//    		}
-//    	} catch (ApiException e) {
-//			e.printStackTrace();
-//		}
-//    	return false;
-//    }
 
 
 	//get item rating given item ID
@@ -294,8 +254,49 @@ public class Recombee{
 		
 		return null;
 	}
+	
+//  //modify rating
+//  public static boolean modifyRating(RecombeeClient client, String user_id, String item_id, double item_rating, Date time){
+//  	//Date time =  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(LocalDateTime.now().toString());
+//  	try {
+//  		//TimeUnit.SECONDS.sleep(1);
+//  		//if user and item doesn't exist in DB return false
+//  		if(getItem(client,item_id)==null || getUser(client,user_id)==null)
+//  			return false;
+//  		
+//  		//find the old ratings and modify it
+//  		for(Rating r:client.send(new ListUserRatings(user_id))){
+//  			if(item_id.equals(r.getItemId())) {
+//  				client.send(new DeleteRating(user_id, item_id));
+//  				client.send(new AddRating(user_id,item_id,item_rating).setTimestamp(time));
+//  				return true;
+//  			}
+//  		}
+//  	} catch (ApiException e) {
+//			e.printStackTrace();
+//		}
+//  	return false;
+//  }
 
-
+//	//add new item
+//	public static ItemObject addNewItem(RecombeeClient client, String itemId, String Type, String location) {
+//		//check if item already exists
+//		if(getItem(client,itemId)!=null)
+//			return null;
+//		
+//		HashMap<String, Object> map= new HashMap<String,Object>();
+//		map.put("Type", Type);
+//		map.put("Location", location);
+//	   	SetItemValues r= new SetItemValues(itemId,map).setCascadeCreate(true);
+//    	try {
+//			client.send(r);
+//			//TimeUnit.SECONDS.sleep(5);
+//			return getItem(client,itemId);
+//		} catch (ApiException e) {
+//			e.printStackTrace();
+//		} 
+//		return null;
+//	}
 	
 
 //    @SuppressWarnings({ "serial" })

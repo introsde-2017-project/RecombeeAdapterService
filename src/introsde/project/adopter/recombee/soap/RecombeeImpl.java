@@ -27,10 +27,8 @@ public class RecombeeImpl implements RecombeeInterface{
 	public RecombeeImpl() {
 
 		foodDB= Recombee.setRecombeeClient("introsde-food","rntjKxWkHt56geGH7uF25kVSt4dQhAHx9jPS3v1yId7zZwEQUMlxvpFxxGLn3OMc");
-
 		movieDB= Recombee.setRecombeeClient("introsde-movie","vFHY4J18WnyMsM3kA550soX5HIGiID0ctFiBvFAHcbdu13EY9G7Gh1jr60cUN7Pg");
-		//initDB(RecombeeDBType.foodDB);
-		//initDB(RecombeeDBType.movieDB);
+		
 	}
 
 	@Override
@@ -41,13 +39,7 @@ public class RecombeeImpl implements RecombeeInterface{
 			return Recombee.addNewUser(movieDB, userId,preitem);
 	}
 
-//	@Override
-//	public ItemObject addItem(RecombeeDBType db, String itemId, String itemType, String location) {
-//		if(db.equals(RecombeeDBType.foodDB))
-//			return Recombee.addNewItem(foodDB, itemId, itemType, location);
-//		else
-//			return Recombee.addNewItem(movieDB, itemId, itemType, location);
-//	}
+
 
 	@Override
 	public boolean addNewRating(RecombeeDBType db, Evaluation rating) {
@@ -57,13 +49,6 @@ public class RecombeeImpl implements RecombeeInterface{
 			return Recombee.addNewRating(movieDB, rating.getUserId(), rating.getItemId(), rating.getRating(), rating.getTime());
 	}
 
-//	@Override
-//	public boolean modifyRating(RecombeeDBType db, Evaluation rating) {
-//		if(db.equals(RecombeeDBType.foodDB))
-//			return Recombee.modifyRating(foodDB, rating.getUserId(), rating.getItemId(), rating.getRating(), rating.getTime());
-//		else
-//			return Recombee.modifyRating(movieDB, rating.getUserId(), rating.getItemId(), rating.getRating(), rating.getTime());
-//	}
 
 
 	@Override
@@ -92,15 +77,6 @@ public class RecombeeImpl implements RecombeeInterface{
 		
 	}
 	
-//	@Override
-//	public ItemObject getItem(RecombeeDBType db, String itemId) {
-//		if(db.equals(RecombeeDBType.foodDB)) {
-//			return Recombee.getItem(foodDB, itemId);
-//		}
-//		else{
-//			return Recombee.getItem(movieDB, itemId);
-//		}
-//	}
 	
 	@Override
 	public List<ItemObject> getItemsByType(RecombeeDBType db, String ItemType) {
@@ -134,15 +110,6 @@ public class RecombeeImpl implements RecombeeInterface{
 		}
 	}
 	
-//	@Override
-//	public boolean resetDB(RecombeeDBType db) {
-//		if(db.equals(RecombeeDBType.foodDB))
-//			return Recombee.resetDB(foodDB);
-//		else
-//			return Recombee.resetDB(movieDB);
-//	}
-
-	//@Override
 	
 
 	
