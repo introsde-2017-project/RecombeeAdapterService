@@ -9,93 +9,92 @@ EMAIL:main.jan@unitn.it
 Server heroku ULR:  
 Server Git ripo:  
   
-Client Git riop:  
+Client Git riop: 
+
+## introduction:
+
+
+## Architecture
+There are three packages in this layer.    
+* init -> use to persist the initial data to recombee DB.  
+* model -> consist of all the POJO and Business logic classes required to persist and retrive the data from recombee and return it to other layers in project.  
+* soap -> it defines all the methods visible to service clients.
+
   
 ## Implementation:  
 
-In this repository there are some files and packages and classes. There are three packages in this this project.  
-1.init  
-2.model  
-3.soap  
+### init package
+* In the `init` package there is `Init.java` class consist of two methods:    
+  * initMovieDB() : it initializes the Movie database reading data from Json file, in my project call by Business Layer.  
+  * initFoodDB() : it initializes the Food database reading data from Json file, in my project call by Business Layer.  
 
-In the init package there are two classes:  
-1.init.java : it has two Methods    
-- boolean initMovieDB() : it initializes the Movie database.    
-- boolean initFoodDB() : it initializes the Food database.    
-2.RecombeePublisher.java : It publishes things on the server. it has following attributes.    
-- SERVER_URL = "http://localhost";     
-- PORT = "6908"; - BASE_URL = "/ws/recombee";    
-there is a method:    
-String getEndpointURL() which returns the end url    
-and then there is the main method which calls on the EndpointURL.and publish things on that end point URL.    
-
-in the "model" package there are 4 classes.       
-1.Evaluation.java :     
-It has the following attributes      
- -String userId;    
- -String itemId;    
- -double rating;    
- -Date time;    
- There is the constructor which access and gives some values to these attributes. then there are some getters and setters     
- to set and get these attributes. the goal of this class to make it possibile for a specific user at a specific time to evaluate an   item.      
-2.ItemObject.java    
-3.Recombee.java    
-4.RecombeeDBType.java    
-
-
-
-### RecombeeImpl.java  
-This Class Implements RecombeeInterface Class which overrides all the methods defined in that class for soap webService.  
+### model package
+* In the `model` package there are 4 classes.   
+  #### `Recombee.java` 
+  * its one of the most important class defines all the methods to retrive persist modify update the data to Remote Recombee DataBase.  
+  * List of Methods:  
+    * `addNewUser(RecombeeClient, userId, ListOfPreferences)` -> used to add new user to Recombee BD with its favourite Preferences throws ApiException if unsuccessful.  
+    * `addNewRating(RecombeeClient , user_id, item_id, item_rating, time)` adds rating for   given item by user at given time.  
+    * `getItemRatings(RecombeeClient , item_id)`  gets item rating given item ID.  
+    * `getRecommendations(RecombeeClient , userId, quantity)` gets recommendation according to user preferences.  
+    * `setRecombeeClient(RecombeeClientId, password)` here setting the recombee client . it resets reset DataBase, adds item property and then add user property.  
+    
+  #### `Evaluation.java` 
+    * its a pojo class used for sending the Rating details to service client.  
+    * Attributes  
+    
+      |String userId |String itemId  |double rating  |Date time  |  
+      |--------------|---------------|---------------|-----------|  
+  #### ItemObject.java
+    * its a pojo class used for sending the food/movie details to client side. 
+    * Attributes
+    
+      |String itemId |String location|String ItemType |double angRating|  
+      |--------------|---------------|----------------|----------------| 
+  #### RecombeeDBType.java  
+    * its a enum class with foodDB and movieDB strings, just for the convenience of the client to have more freedom to chose which DB they want to interact to.
   
-* at first deply to heroku it initialize the data to recombee DB by reading the json files.  
-here is how the recombee User and item data structured:  
-//TODO add tables of recombee DB.  
+### Soap package
+* In the `soap` package there are soap classes used to define the services availabe to clients.
+  #### RecombeeInterface.java
+  #### RecombeeImpl.java
+    * This Class Implements RecombeeInterface Class which overrides all the methods defined in that class for soap webService.  
+   
 
-* In the constructor it initalized the RecombeeFood and RecombeeMovie remote DataBases.  
-* Method #1: `addUser(DBType, userId, preferences)` DBType can be RecombeeFood/RecombeeMovie and preferences can be list of FoodTypes/MovieGenres.  
+    * In the constructor it initalized the RecombeeFood and RecombeeMovie remote DataBases.  
+      `addUser(DBType, userId, preferences)` DBType can be RecombeeFood/RecombeeMovie and preferences can be list of FoodTypes/MovieGenres.  
+    * Method #2:  `addNewRating(RecombeeDBType db, Evaluation rating)` through this method items are rated by user. this method is used to save data like who rated which item at what time and stores it in the database.   
+
+      |UserId |ItemId  |Rating  |Time        |     
+      |-------|--------|--------|------------|    
+      |501    |101     |4.5     |timestamp   |    
+      |502    |102     |3.5     |timestamp   |    
+
+     * Method #3: `getRecommendations(RecombeeDBType db, String userId, int quantity)` This method recommends number of items to the user   with Userid.First it checks if the database is food or movie then recommend items accordingly.  
+
+        |String itemId |String location|String ItemType |double angRating|           
+        |--------------|---------------|----------------|----------------|           
+        |Pasta|505   |5        |     
+        |Ceci |   |5        |     
+
+
+        Or if the database is Movie then: 
+
+        |Movie|UserId|Quantity|          
+        |-----|------|--------|          
+        |War|777   |4       |          
+        |Cartoon|992   |8       |    
+
+      * Method #4: `getItemsByType(RecombeeDBType db, String ItemType)` this method returns item list by its type. first it checks if the   item is from Movie or from food.     
+    * Method #5 `getAllItem(RecombeeDBType db)` it first checks if the asked items are from movie or from food. then it returns the list   of all the items.    
+    * Method #6 `getItemRatings(RecombeeDBType db, String itemId)` this method returns the list of all the ratings of the item.  
+    * Method # 7 `initDB(RecombeeDBType db)` This method first check if the parameter db is movie it initialize the movie database   otherwise it initialize the Food database.
+
+
+
+   
+
  
-* Method #2:  `addNewRating(RecombeeDBType db, Evaluation rating)` through this method items are rated by user with id UserId . this method tells us who rated which item at what time and stores it in the database.   
-
-|UserId |ItemId  |Rating  |Time    |     
-|-------|--------|--------|--------|    
-|123    |777     |9.5     |12.00   |    
-|333    |999     |7.9     |10.00   |    
-
-* Method #3: `getRecommendations(RecombeeDBType db, String userId, int quantity)` This method recommends number of items to the user   with Userid.First it checks if the database is food or movie then recommend items accordingly.  
-
-|Food |UserId|Quanity  |           
-|-----|------|---------|           
-|Pasta|9115  |7        |     
-|Ceci |999   |6        |     
-
-
-Or if the database is Movie then: 
-
-|Movie|UserId|Quantity|          
-|-----|------|--------|          
-|War|777   |4       |          
-|Cartoon|992   |8       |    
-
-* Method #4: `getItemsByType(RecombeeDBType db, String ItemType)` this method returns item list by its type. first it checks if the   item is from Movie or from food.     
-* Method #5 `getAllItem(RecombeeDBType db)` it first checks if the asked items are from movie or from food. then it returns the list   of all the items.    
-* Method #6 `getItemRatings(RecombeeDBType db, String itemId)` this method returns the list of all the ratings of the item.  
-* Method # 7 `initDB(RecombeeDBType db)` This method first check if the parameter db is movie it initialize the movie database   otherwise it initialize the Food database.   
-
-### Recombee.java
-* Method #1: `addNewUser(RecombeeClient, userId , preferences)` it persists the data to Remote Recombee DB, Recombee throws ApiException if unsuccessfull.  
-* Method #2: `addNewUser(RecombeeClient client, String userId, ArrayList<String> preitem)` Adds new user with prefered items.
-* Method #3" `addNewRating(RecombeeClient client, String user_id, String item_id, double item_rating, Date time)` adds rating for   given item by user at given time.    
-* Method #4 `getItemRatings(RecombeeClient client, String item_id)`  gets item rating given item ID.  
-* Method #5 `getRec4User(RecombeeClient client, String userId, int quantity)` gets recommendation according to user preferences.  
-* Method #6 `setRecombeeClient(String clientId, String password)` here setting the recombee client . it resets reset DataBase,  
-adds item property and then add user property.  
-
-### RecombeeDBType.java  
-It has two database type 1)Food 2)Movie. it has an attribute "String name" for which there is  getter and setter.  
-* Method #1 `getAll()` which returns the list of all databases.  
-* Method #2 `fromString(String text)` it returns the type of database i.e movie or Food.  
-
-
 
 
 
