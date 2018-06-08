@@ -84,11 +84,11 @@ In the `soap` package there are soap classes used to define the services availab
   * `getUserRatings(RecombeeDBType, userId)` 
   -> returns all the ratings given by a user identified by userId. 
   * `getRecommendations(RecombeeDBType, userId, quantity)`  
-  -> get the recommendations from recombee and returns a list of ItemObjects.     
+  -> get the recommendations from recombee and returns a list of ItemObject.     
   * `getItemsByType(RecombeeDBType ,ItemType)`  
-  -> this method returns item list by its type.     
-  * `getAllItem(RecombeeDBType )`  
-  -> it first checks if the asked items are from movie or from food. then it returns the list of all the items.    
+  -> this method returns list of itemObject by given its type.     
+  * `getAllItem(RecombeeDBType)`  
+  -> it returns the list of all the items given its DBtype.    
   * `getItemRatings(RecombeeDBType, itemId)`  
   -> this method returns the list of all the ratings of the item.  
   * `initDB(RecombeeDBType)`  
