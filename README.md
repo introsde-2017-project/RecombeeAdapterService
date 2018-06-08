@@ -72,7 +72,7 @@ its a enum class with foodDB and movieDB strings, just for the convenience of th
 ### Soap package
 In the `soap` package there are soap classes used to define the services availabe to clients.  
 #### `RecombeeInterface.java`
-
+It an interface which defines all methods visible to service client, `RecombeeImpl.java` implements and override all the methods define here.
 #### `RecombeeImpl.java`
 * This Class Implements RecombeeInterface Class which overrides all the methods defined in that class for soap webService.  
 * In the constructor it initalized the RecombeeFood and RecombeeMovie remote DataBases. 
