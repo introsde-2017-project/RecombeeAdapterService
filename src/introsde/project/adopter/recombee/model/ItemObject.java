@@ -11,6 +11,8 @@ public class ItemObject implements Serializable{
 	private String itemId;
 	private String location;
 	private String itemType;
+	private double avgRating;
+
 
 	public ItemObject() {}
 	
@@ -39,6 +41,14 @@ public class ItemObject implements Serializable{
 	}
 	public void setItemType(String itemType) {
 		this.itemType = itemType;
+	}
+
+	public double getAvgRating() {
+		return avgRating;
+	}
+
+	public void setAvgRating(double avgRating) {
+		this.avgRating = avgRating;
 	}
 
 }

@@ -110,7 +110,15 @@ public class RecombeeImpl implements RecombeeInterface{
 		}
 	}
 	
-	
+	@Override
+	public boolean initDB(RecombeeDBType db) {
+		if(db.equals(RecombeeDBType.foodDB)) {
+			return Init.initFoodDB();
+		}
+		else {
+			return Init.initMovieDB();
+		}
+	}
 
 	
 
@@ -141,16 +149,6 @@ public class RecombeeImpl implements RecombeeInterface{
 				e.printStackTrace();
 			}
 			return false;
-		}
-	}
-
-	@Override
-	public boolean initDB(RecombeeDBType db) {
-		if(db.equals(RecombeeDBType.foodDB)) {
-			return Init.initFoodDB();
-		}
-		else {
-			return Init.initMovieDB();
 		}
 	}
 	
