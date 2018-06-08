@@ -25,15 +25,6 @@ There are three packages in this layer.
 * model -> consist of all the POJO and Business logic classes required to persist and retrive the data from recombee and return it to other layers in project.  
 * soap -> it defines all the methods visible to service clients.
 
-## Recombee DB:
-* Food/Movie
-* |String itemId |String location|String Type  |  
-  |--------------|---------------|-------------| 
-
-* User
-* |String userId |Set PreferredTypes|  
-  |--------------|------------------|
-  
 ## Implementation:  
 
 ### `init package`
@@ -101,6 +92,15 @@ In the `model` package there are 4 classes.
   * `initDB(RecombeeDBType)`  
   -> call `inti.java` class and initialize data to Recombee DB by it given movieDB/foodDB type.
    
+## Recombee DB:
+* Food/Movie
+* |String itemId |String location|String Type  |  
+  |--------------|---------------|-------------| 
+
+* User
+* |String userId |Set PreferredTypes|  
+  |--------------|------------------|
+  
 
 ## Execuation:
 1: clone or download the code from server git repo.  
