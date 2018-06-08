@@ -53,24 +53,24 @@ In the `model` package there are 4 classes.
   -> here setting the recombee client . it resets reset DataBase, adds item property and then add user property.  
 `NOTE: here RecombeeClient is of com.recombee.api_client.RecombeeClient type, which is differnt from RecombeeDBType, check RecombeeDBType.java description below for more detail.`  
     
-#### `Evaluation.java` 
-* its a pojo class used for sending the Rating details to service client.  
-* Attributes  
+#### `Evaluation.java`   
+its a pojo class used for sending the Rating details to service client.  
+Attributes   
     
-     |String userId |String itemId  |double rating  |Date time  |  
-     |--------------|---------------|---------------|-----------|  
+ |String userId |String itemId  |double rating  |Date time  |  
+ |--------------|---------------|---------------|-----------|  
 
-#### `ItemObject.java`
-* its a pojo class used for sending the food/movie details to client side. 
-* Attributes
-    
-     |String itemId |String location|String ItemType |double angRating|  
-     |--------------|---------------|----------------|----------------| 
-#### `RecombeeDBType.java` 
-* its a enum class with foodDB and movieDB strings, just for the convenience of the client to have more freedom to chose which DB they want to interact to.
+#### `ItemObject.java`  
+its a pojo class used for sending the food/movie details to client side.   
+Attributes  
+ 
+ |String itemId |String location|String ItemType |double angRating|  
+ |--------------|---------------|----------------|----------------| 
+#### `RecombeeDBType.java`   
+its a enum class with foodDB and movieDB strings, just for the convenience of the client to have more freedom to chose which DB they want to interact to.  
   
 ### Soap package
-In the `soap` package there are soap classes used to define the services availabe to clients.
+In the `soap` package there are soap classes used to define the services availabe to clients.  
 #### `RecombeeInterface.java`
 
 #### `RecombeeImpl.java`
