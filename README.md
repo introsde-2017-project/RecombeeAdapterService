@@ -25,14 +25,14 @@ There are three packages in this layer.
   
 ## Implementation:  
 
-### init package
+### `init package`
 * In the `init` package there is `Init.java` class consist of two methods:    
   * initMovieDB() : it initializes the Movie database reading data from Json file, in my project call by Business Layer.  
   * initFoodDB() : it initializes the Food database reading data from Json file, in my project call by Business Layer.  
 
-### model package
+### `model package`
 In the `model` package there are 4 classes.   
-#### `Recombee.java` 
+#### Recombee.java  
 * its one of the most important class defines all the methods to retrive persist modify update the data to Remote Recombee DataBase.  
 * List of important Methods:  
   * `addNewUser(RecombeeClient, userId, ListOfPreferences)`  
@@ -53,27 +53,27 @@ In the `model` package there are 4 classes.
   -> here setting the recombee client . it resets reset DataBase, adds item property and then add user property.  
 `NOTE: here RecombeeClient is of com.recombee.api_client.RecombeeClient type, which is differnt from RecombeeDBType, check RecombeeDBType.java description below for more detail.`  
     
-#### `Evaluation.java`   
+#### Evaluation.java   
 * its a pojo class used for sending the Rating details to service client.  
 * Attributes   
     
  |String userId |String itemId  |double rating  |Date time  |  
  |--------------|---------------|---------------|-----------|  
 
-#### `ItemObject.java`  
+#### ItemObject.java 
 * its a pojo class used for sending the food/movie details to client side.   
 * Attributes  
  
  |String itemId |String location|String ItemType |double angRating|  
  |--------------|---------------|----------------|----------------| 
-#### `RecombeeDBType.java`   
+#### RecombeeDBType.java  
 * its a enum class with foodDB and movieDB strings, just for the convenience of the client to have more freedom to chose which DB they want to interact to.  
   
-### Soap package
+### `Soap package`
 * In the `soap` package there are soap classes used to define the services availabe to clients.  
-#### `RecombeeInterface.java`
+#### RecombeeInterface.java
 * It an interface which defines all methods visible to service client, `RecombeeImpl.java` implements and override all the methods define here.
-#### `RecombeeImpl.java`
+#### RecombeeImpl.java
 * This Class Implements RecombeeInterface Class which overrides all the methods defined in that class for soap webService.  
 * In the constructor it initalized the RecombeeFood and RecombeeMovie remote DataBases. 
 * List of Services for client:  
@@ -93,18 +93,6 @@ In the `model` package there are 4 classes.
   -> this method returns the list of all the ratings of the item.  
   * `initDB(RecombeeDBType)`  
   -> call `inti.java` class and initialize data to Recombee DB by it given movieDB/foodDB type.
-
-
-
    
 
  
-
-
-
-
-
-
-
-
-
