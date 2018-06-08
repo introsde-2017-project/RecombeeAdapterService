@@ -25,16 +25,14 @@ There are three packages in this layer.
 * model -> consist of all the POJO and Business logic classes required to persist and retrive the data from recombee and return it to other layers in project.  
 * soap -> it defines all the methods visible to service clients.
 
-## Recombee DB Architecture:
+## Recombee DB:
 * Food/Movie
-
-|String itemId |String location|String Type  |  
-|--------------|---------------|-------------| 
+* |String itemId |String location|String Type  |  
+  |--------------|---------------|-------------| 
 
 * User
-
-|String userId |Set PreferredTypes|  
-|--------------|------------------|
+* |String userId |Set PreferredTypes|  
+  |--------------|------------------|
   
 ## Implementation:  
 
@@ -68,17 +66,13 @@ In the `model` package there are 4 classes.
     
 #### 2: Evaluation.java   
 * its a pojo class used for sending the Rating details to service client.  
-* Attributes   
-    
- |String userId |String itemId  |double rating  |Date time  |  
- |--------------|---------------|---------------|-----------|  
+* |String userId |String itemId  |double rating  |Date time  |
+  |--------------|---------------|---------------|-----------|  
 
 #### 3: ItemObject.java 
 * its a pojo class used for sending the food/movie details to client side.   
-* Attributes  
- 
- |String itemId |String location|String ItemType |  
- |--------------|---------------|----------------| 
+* |String itemId |String location|String ItemType |  
+  |--------------|---------------|----------------| 
 #### 4: RecombeeDBType.java  
 * its a enum class with foodDB and movieDB strings, just for the convenience of the client to have more freedom to chose which DB they want to interact to.  
   
