@@ -47,7 +47,6 @@ public class Init {
 							items.get(item_name).getAvgRating(),
 							items.get(item_name).getNumberUserRating()
 							));
-					
 				}
 				else {
 					items.put(item_name, new ItemObject(item_name,location,Type,rating));
@@ -83,7 +82,6 @@ public class Init {
 			interactions = new ArrayList<>();
 			
 			for(Map.Entry<String, ItemObject> item: items.entrySet()) {
-				
 				SetItemValues r2= new SetItemValues((String) item.getValue().getItemId(), 
 						new HashMap<String, Object>() {
 							private static final long serialVersionUID = 1L;
@@ -95,6 +93,7 @@ public class Init {
 						}}
 						).setCascadeCreate(true);
 				interactions.add(r2);
+				System.out.println("lllllllllllllll");
 			}
 			return RecombeeImpl.addNewBatch(RecombeeDBType.movieDB,interactions);
 			

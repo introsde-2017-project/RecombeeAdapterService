@@ -125,30 +125,27 @@ public class RecombeeImpl implements RecombeeInterface{
 	public static boolean addNewBatch(RecombeeDBType db,ArrayList<Request> interactions) {
 		if(db.equals(RecombeeDBType.foodDB)){
 		
-		try {
-			for(BatchResponse r: foodDB.send(new Batch(interactions))){
-				if(r.getStatusCode()!=200)
-					return false;
-			}
-			return true;
-		} catch (ApiException e) {
-			e.printStackTrace();
-		}
-		
-		}
-		else {
 			try {
-				movieDB.send(new Batch(interactions));
-				for(BatchResponse r: movieDB.send(new Batch(interactions))){
-					if(r.getStatusCode()!=200) {
+				for(BatchResponse r: foodDB.send(new Batch(interactions))){
+					if(r.getStatusCode()!=200)
 						return false;
-					}
 				}
 				return true;
 			} catch (ApiException e) {
 				e.printStackTrace();
 			}
-			return false;
+		
+		}
+		else {
+			try {
+				for(BatchResponse r: movieDB.send(new Batch(interactions))){
+					if(r.getStatusCode()!=200)
+						return false;
+				}
+				return true;
+			} catch (ApiException e) {
+				e.printStackTrace();
+			}
 		}
 		return false;
 	}	
