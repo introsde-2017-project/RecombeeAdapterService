@@ -83,6 +83,7 @@ public class Recombee{
 		                put("Type", item.getItemType());
 		                put("Location", item.getLocation());
 		                put("RatingAvg", item.getAvgRating());
+		                put("NumberOfUserRated", item.getNumberUserRating());
 					}}
 					).setCascadeCreate(true));
     		
