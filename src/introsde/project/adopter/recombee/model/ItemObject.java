@@ -12,7 +12,10 @@ public class ItemObject implements Serializable{
 	private String location;
 	private String itemType;
 	private double avgRating;
+	private int numberUserRating;
 
+
+	
 
 	public ItemObject() {}
 	
@@ -51,10 +54,18 @@ public class ItemObject implements Serializable{
 	public void setAvgRating(double avgRating) {
 		this.avgRating = avgRating;
 	}
+	
+	public int getNumberUserRating() {
+		return numberUserRating;
+	}
 
-	public static double addToAvg(double rating, double avgRating2) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void setNumberUserRating(int numberUserRating) {
+		this.numberUserRating = numberUserRating;
+	}
+
+	public static double addToAvg(double rating, double avgRating2, int numberofpeople) {
+		double sum= (avgRating2*numberofpeople)+rating;
+		return sum/(numberofpeople+1);
 	}
 
 }

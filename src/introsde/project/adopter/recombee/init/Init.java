@@ -42,7 +42,14 @@ public class Init {
 				double rating =Double.valueOf((String) interaction.get("item_rating"));
 				
 				if(items.containsKey(item_name)) {
-					items.get(item_name).setAvgRating(ItemObject.addToAvg(rating,items.get(item_name).getAvgRating()));
+					items.get(item_name).setAvgRating(ItemObject.addToAvg(
+							rating,
+							items.get(item_name).getAvgRating(),
+							items.get(item_name).getNumberUserRating()
+							));
+					items.get(item_name).setNumberUserRating(
+							items.get(item_name).getNumberUserRating()+1
+							);
 				}
 				else {
 					items.put(item_name, new ItemObject(item_name,location,Type,rating));
@@ -112,7 +119,14 @@ public class Init {
 				Date time =  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse((String)interaction.get("timestamp"));
 				
 				if(items.containsKey(item_name)) {
-					items.get(item_name).setAvgRating(ItemObject.addToAvg(rating,items.get(item_name).getAvgRating()));
+					items.get(item_name).setAvgRating(ItemObject.addToAvg(
+							rating,
+							items.get(item_name).getAvgRating(),
+							items.get(item_name).getNumberUserRating()
+							));
+					items.get(item_name).setNumberUserRating(
+							items.get(item_name).getNumberUserRating()+1
+							);
 				}
 				else {
 					items.put(item_name, new ItemObject(item_name,location,Type,rating));
