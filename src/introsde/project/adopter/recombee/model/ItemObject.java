@@ -65,7 +65,8 @@ public class ItemObject implements Serializable{
 
 	public static double addToAvg(double rating, double avgRating2, int numberofpeople) {
 		double sum= (avgRating2*numberofpeople)+rating;
-		return round(sum/(numberofpeople+1),2);
+		double n= numberofpeople+1;
+		return round(sum/n,2);
 	}
 	
 	private static double round(double value, int places) {

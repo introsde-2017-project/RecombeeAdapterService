@@ -47,13 +47,15 @@ public class Init {
 							items.get(item_name).getAvgRating(),
 							items.get(item_name).getNumberUserRating()
 							));
-					items.get(item_name).setNumberUserRating(
-							items.get(item_name).getNumberUserRating()+1
-							);
+					
 				}
 				else {
 					items.put(item_name, new ItemObject(item_name,location,Type,rating));
 				}
+				
+				items.get(item_name).setNumberUserRating(
+						items.get(item_name).getNumberUserRating()+1
+						);
 				
 				
 				Date time =  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse((String)interaction.get("timestamp"));
@@ -124,13 +126,14 @@ public class Init {
 							items.get(item_name).getAvgRating(),
 							items.get(item_name).getNumberUserRating()
 							));
-					items.get(item_name).setNumberUserRating(
-							items.get(item_name).getNumberUserRating()+1
-							);
+					
 				}
 				else {
 					items.put(item_name, new ItemObject(item_name,location,Type,rating));
 				}
+				items.get(item_name).setNumberUserRating(
+						items.get(item_name).getNumberUserRating()+1
+						);
 				
 				//set Type value for given item id
 //				//it will create a new item if doesn't exist already
