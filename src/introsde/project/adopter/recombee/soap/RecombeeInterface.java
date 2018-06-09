@@ -82,7 +82,7 @@ public interface RecombeeInterface {
     		);
 	
 	@WebMethod(operationName="getstr")
-	@WebResult(name="") 
+	@WebResult(name="list") 
     public List<String> getstr(
     		);
 
