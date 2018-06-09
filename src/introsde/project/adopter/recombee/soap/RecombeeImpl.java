@@ -127,14 +127,15 @@ public class RecombeeImpl implements RecombeeInterface{
 		
 		try {
 			for(BatchResponse r: foodDB.send(new Batch(interactions))){
-				if(r.getStatusCode()!=200);
-				return false;
+				System.out.println(r.getStatusCode());
+				if(r.getStatusCode()!=200)
+					return false;
 			}
 			return true;
 		} catch (ApiException e) {
 			e.printStackTrace();
 		}
-		return false;
+		
 		}
 		else {
 			try {
@@ -150,6 +151,7 @@ public class RecombeeImpl implements RecombeeInterface{
 			}
 			return false;
 		}
+		return false;
 	}	
 
 	
