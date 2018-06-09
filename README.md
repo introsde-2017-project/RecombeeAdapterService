@@ -1,15 +1,12 @@
 # Recombee Adopter Layer
 
-NAME: Cheema Danish Asghar  
-EMAIL: danishasghar.cheema@studenti.unitn.it  
-  
-Group Partner:  
-NAME: Main muhammad faheem - Jan  
-EMAIL:main.jan@unitn.it  
+Project Documentation: https://github.com/introsde-2017-project/Wiki  
+
   
 heroku WSDL ULR:  https://recombee-introsde-2018.herokuapp.com/ws/recombee?wsdl  
 Git ripo:  https://github.com/introsde-2017-project/RecombeeAdapterService  
-Project WIKI: https://github.com/introsde-2017-project/Wiki  
+API Documentation: https://documenter.getpostman.com/view/2954866/RWEawhtg  
+
    
 
 ## introduction:
