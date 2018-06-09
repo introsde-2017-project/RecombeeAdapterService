@@ -132,6 +132,8 @@ public class Recombee{
 						item.setLocation(entry.getValue().toString());
 					if(entry.getKey().equals("Type"))
 						item.setItemType(entry.getValue().toString());
+					if(entry.getKey().equals("RatingAvg"))
+						item.setAvgRating(Double.valueOf(entry.getValue().toString()));
 				}
 				list.add(item);
 			}
@@ -167,7 +169,6 @@ public class Recombee{
 		List<ItemObject> item= new LinkedList<ItemObject>();
 		try {
 			for(Item l: client.send(new ListItems().setReturnProperties(true))){
-				System.out.println(itemToItemObject(l).getItemId());
 				item.add(itemToItemObject(l));
 			}
 		} catch (ApiException e) {
@@ -184,6 +185,7 @@ public class Recombee{
 			//add item property
 			client.send(new AddItemProperty("Type", "string"));
 			client.send(new AddItemProperty("Location", "string"));
+			client.send(new AddItemProperty("RatingAvg", "double"));
 			//add user property
 			client.send(new AddUserProperty("PreferredTypes", "set"));
 			return client;
@@ -201,6 +203,7 @@ public class Recombee{
 			//add item property
 			client.send(new AddItemProperty("Type", "string"));
 			client.send(new AddItemProperty("Location", "string"));
+			client.send(new AddItemProperty("RatingAvg", "double"));
 			//add user property
 			client.send(new AddUserProperty("PreferredTypes", "set"));
 			return true;
@@ -234,6 +237,8 @@ public class Recombee{
 				item.setLocation(entry.getValue().toString());
 			if(entry.getKey().equals("Type"))
 				item.setItemType(entry.getValue().toString());
+			if(entry.getKey().equals("RatingAvg"))
+				item.setAvgRating(Double.valueOf(entry.getValue().toString()));
 		}
 		return item;
 	}

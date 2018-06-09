@@ -16,10 +16,11 @@ public class ItemObject implements Serializable{
 
 	public ItemObject() {}
 	
-	public ItemObject(String itemId, String location, String itemType) {
+	public ItemObject(String itemId, String location, String itemType, double avgRating) {
 		this.itemId=itemId;
 		this.location=location;
 		this.itemType=itemType;
+		this.avgRating=avgRating;
 	}
 	
 	public String getItemId() {
@@ -49,6 +50,11 @@ public class ItemObject implements Serializable{
 
 	public void setAvgRating(double avgRating) {
 		this.avgRating = avgRating;
+	}
+
+	public static double addToAvg(double rating, double avgRating2) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
