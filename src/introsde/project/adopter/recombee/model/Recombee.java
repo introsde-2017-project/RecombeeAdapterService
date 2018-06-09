@@ -169,11 +169,10 @@ public class Recombee{
 			for(Item l: client.send(new ListItems().setReturnProperties(true))){
 				item.add(itemToItemObject(l));
 			}
-			return item;
 		} catch (ApiException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return item;
 	}
 
 	public static RecombeeClient setRecombeeClient(String clientId, String password){
