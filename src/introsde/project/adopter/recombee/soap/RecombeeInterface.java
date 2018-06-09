@@ -82,9 +82,8 @@ public interface RecombeeInterface {
     		);
 	
 	@WebMethod(operationName="getstr")
-	@WebResult(name="ratingList") 
-    public String getstr(
-    		@WebParam(name="dbName") String db
+	@WebResult(name="") 
+    public List<String> getstr(
     		);
 
 }

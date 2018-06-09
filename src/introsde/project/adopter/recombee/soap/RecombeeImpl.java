@@ -153,7 +153,10 @@ public class RecombeeImpl implements RecombeeInterface{
 	}
 
 	@Override
-	public String getstr(String str) {
+	public List<String> getstr() {
+		List<String> str= new ArrayList<String>();
+		str.add("fgdgfdg");
+		str.add("khhkkhj");
 		return str;
 	}
 	
