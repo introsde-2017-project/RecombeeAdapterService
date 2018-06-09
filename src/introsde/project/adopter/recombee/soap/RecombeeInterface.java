@@ -83,8 +83,7 @@ public interface RecombeeInterface {
 	
 	@WebMethod(operationName="getstr")
 	@WebResult(name="string") 
-    public String getstr(
-    		@WebParam(name="string") String string
+    public List<RecombeeDBType> getstr(
     		);
 
 }

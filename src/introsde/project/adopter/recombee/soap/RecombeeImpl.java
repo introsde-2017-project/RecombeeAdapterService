@@ -153,8 +153,8 @@ public class RecombeeImpl implements RecombeeInterface{
 	}
 
 	@Override
-	public String getstr(String string) {
-		return "hello";
+	public List<RecombeeDBType> getstr() {
+		return RecombeeDBType.getAll();
 	}
 	
 
