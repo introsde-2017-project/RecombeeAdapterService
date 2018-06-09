@@ -80,5 +80,11 @@ public interface RecombeeInterface {
     public boolean initDB(
     		@WebParam(name="dbName") RecombeeDBType db
     		);
+	
+	@WebMethod(operationName="initBD")
+	@WebResult(name="boolean") 
+    public String getstr(
+    		@WebParam(name="string") String string
+    		);
 
 }

@@ -151,6 +151,11 @@ public class RecombeeImpl implements RecombeeInterface{
 			return false;
 		}
 	}
+
+	@Override
+	public String getstr(String string) {
+		return "hello";
+	}
 	
 
 	
