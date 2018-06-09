@@ -167,6 +167,7 @@ public class Recombee{
 		List<ItemObject> item= new LinkedList<ItemObject>();
 		try {
 			for(Item l: client.send(new ListItems().setReturnProperties(true))){
+				System.out.println(itemToItemObject(l).getItemId());
 				item.add(itemToItemObject(l));
 			}
 		} catch (ApiException e) {
