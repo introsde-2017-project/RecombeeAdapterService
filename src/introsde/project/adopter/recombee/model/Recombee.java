@@ -52,9 +52,11 @@ public class Recombee{
 	//add rating for given item by user
     public static boolean addNewRating(RecombeeClient client, String user_id, String item_id, double item_rating, Date time){
     	//Date time =  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(LocalDateTime.now().toString());
+    	
     	try {
+    		ItemObject item =getItem(client,item_id); 
     		//if user and item doesn't exist in DB return false
-    		if(getItem(client,item_id)==null || getUser(client,user_id)==null)
+    		if(item==null || getUser(client,user_id)==null)
     			return false;
     		
     		//if the user already rate this item it will return false
@@ -63,6 +65,31 @@ public class Recombee{
     				return false;
 				}
     		}
+    		
+    		
+    		
+    		//modify avg rating in recombee
+    		item.setAvgRating(ItemObject.addToAvg(
+    				item_rating,
+					item.getAvgRating(),
+					item.getNumberUserRating()
+					));
+    		item.setNumberUserRating(item.getNumberUserRating()+1);
+    		
+    		client.send(new SetItemValues((String) item.getItemId(), 
+					new HashMap<String, Object>() {
+						private static final long serialVersionUID = 1L;
+					{
+		                put("Type", item.getItemType());
+		                put("Location", item.getLocation());
+		                put("RatingAvg", item.getAvgRating());
+					}}
+					).setCascadeCreate(true));
+    		
+    		
+    		
+    		
+    		//add rating to Recombee
     		client.send(new AddRating(user_id,item_id,item_rating).setTimestamp(time).setCascadeCreate(true));
     		return true;
     	} catch (ApiException e) {
@@ -134,6 +161,8 @@ public class Recombee{
 						item.setItemType(entry.getValue().toString());
 					if(entry.getKey().equals("RatingAvg"))
 						item.setAvgRating(Double.valueOf(entry.getValue().toString()));
+					if(entry.getKey().equals("NumberOfUserRated"))
+						item.setNumberUserRating(Integer.valueOf(entry.getValue().toString()));
 				}
 				list.add(item);
 			}
@@ -186,6 +215,7 @@ public class Recombee{
 			client.send(new AddItemProperty("Type", "string"));
 			client.send(new AddItemProperty("Location", "string"));
 			client.send(new AddItemProperty("RatingAvg", "double"));
+			client.send(new AddItemProperty("NumberOfUserRated", "int"));
 			//add user property
 			client.send(new AddUserProperty("PreferredTypes", "set"));
 			return client;
@@ -204,6 +234,7 @@ public class Recombee{
 			client.send(new AddItemProperty("Type", "string"));
 			client.send(new AddItemProperty("Location", "string"));
 			client.send(new AddItemProperty("RatingAvg", "double"));
+			client.send(new AddItemProperty("NumberOfUserRated", "int"));
 			//add user property
 			client.send(new AddUserProperty("PreferredTypes", "set"));
 			return true;
@@ -239,6 +270,8 @@ public class Recombee{
 				item.setItemType(entry.getValue().toString());
 			if(entry.getKey().equals("RatingAvg"))
 				item.setAvgRating(Double.valueOf(entry.getValue().toString()));
+			if(entry.getKey().equals("NumberOfUserRated"))
+				item.setNumberUserRating(Integer.valueOf(entry.getValue().toString()));
 		}
 		return item;
 	}

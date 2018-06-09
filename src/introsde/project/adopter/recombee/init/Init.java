@@ -91,6 +91,7 @@ public class Init {
 			                put("Type", item.getValue().getItemType());
 			                put("Location", item.getValue().getLocation());
 			                put("RatingAvg", item.getValue().getAvgRating());
+			                put("NumberOfUserRated", item.getValue().getNumberUserRating());
 						}}
 						).setCascadeCreate(true);
 				interactions.add(r2);
@@ -170,6 +171,7 @@ public class Init {
 			                put("Type", item.getValue().getItemType());
 			                put("Location", item.getValue().getLocation());
 			                put("RatingAvg", item.getValue().getAvgRating());
+			                put("NumberOfUserRated", item.getValue().getNumberUserRating());
 						}}
 						).setCascadeCreate(true);
 				interactions.add(r2);
