@@ -58,7 +58,7 @@ public interface RecombeeInterface {
     @WebResult(name="StringList") 
     public List<ItemObject> getItemsByType(
     		@WebParam(name="dbName") RecombeeDBType db,
-    		@WebParam(name="itemName") String ItemType
+    		@WebParam(name="itemType") String ItemType
     		);
 	
 	@WebMethod(operationName="getAllItem")
@@ -81,9 +81,5 @@ public interface RecombeeInterface {
     		@WebParam(name="dbName") RecombeeDBType db
     		);
 	
-	@WebMethod(operationName="getstr")
-	@WebResult(name="list") 
-    public List<String> getstr(
-    		);
 
 }
