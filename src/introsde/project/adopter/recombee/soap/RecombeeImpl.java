@@ -127,7 +127,6 @@ public class RecombeeImpl implements RecombeeInterface{
 		
 		try {
 			for(BatchResponse r: foodDB.send(new Batch(interactions))){
-				System.out.println(r.getStatusCode());
 				if(r.getStatusCode()!=200)
 					return false;
 			}
