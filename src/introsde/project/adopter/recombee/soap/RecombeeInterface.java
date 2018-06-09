@@ -82,7 +82,7 @@ public interface RecombeeInterface {
     		);
 	
 	@WebMethod(operationName="getstr")
-	@WebResult(name="string") 
+	@WebResult(name="ratingList") 
     public List<RecombeeDBType> getstr(
     		);
 
