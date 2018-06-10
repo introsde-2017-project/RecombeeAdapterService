@@ -26,8 +26,8 @@ public class RecombeeImpl implements RecombeeInterface{
 	
 	public RecombeeImpl() {
 
-		foodDB= Recombee.setRecombeeClient("introsde-food","rntjKxWkHt56geGH7uF25kVSt4dQhAHx9jPS3v1yId7zZwEQUMlxvpFxxGLn3OMc");
-		movieDB= Recombee.setRecombeeClient("introsde-movie","vFHY4J18WnyMsM3kA550soX5HIGiID0ctFiBvFAHcbdu13EY9G7Gh1jr60cUN7Pg");
+		foodDB= Recombee.setRecombeeClient("introsde-food","WVtsV69vllTXu77BFHuXmnyNCoH6djhqTDmKMxibqTDrC8iOUxzyM68HN4Ks3Liq");
+		movieDB= Recombee.setRecombeeClient("introsde-movie","4HQhTzef6KPSb8YXmHrjz9cmnIFHPONbwd8EADlGbMUXLfgOf0U8LZxQ1Ld9gEYr");
 		
 	}
 

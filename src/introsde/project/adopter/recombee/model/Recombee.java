@@ -33,9 +33,7 @@ public class Recombee{
 					throw new Exception();
 				
 				HashMap<String, Object> map= new HashMap<String,Object>();
-				for(String str:preitem) {
-					System.out.println(str);
-				}
+				
 				map.put("PreferredTypes", preitem);
 				client.send(new AddUser(userId));
 				//TimeUnit.SECONDS.sleep(5);
@@ -155,7 +153,7 @@ public class Recombee{
 					.setReturnProperties(true)
 					);
 			for(Recommendation rec: recommended) {
-				System.out.println(rec.getId());
+				//System.out.println(rec.getId());
 				ItemObject item= new ItemObject();
 				item.setItemId(rec.getId());
 				for(Map.Entry<String,Object> entry:rec.getValues().entrySet()) {
