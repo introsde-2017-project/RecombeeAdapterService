@@ -1,10 +1,9 @@
 # Recombee Adopter Layer
 
-Project Documentation: https://github.com/introsde-2017-project/Wiki  
+Project Documantation: https://github.com/introsde-2017-project/documentation#introsde-project-2017  
 
   
 heroku WSDL ULR:  https://recombee-introsde-2018.herokuapp.com/ws/recombee?wsdl  
-Git ripo:  https://github.com/introsde-2017-project/RecombeeAdapterService  
 API Documentation: https://documenter.getpostman.com/view/2954866/RWEawhtg  
 
    
