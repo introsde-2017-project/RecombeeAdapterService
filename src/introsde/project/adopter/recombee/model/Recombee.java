@@ -33,6 +33,9 @@ public class Recombee{
 					throw new Exception();
 				
 				HashMap<String, Object> map= new HashMap<String,Object>();
+				for(String str:preitem) {
+					System.out.println(str);
+				}
 				map.put("PreferredTypes", preitem);
 				client.send(new AddUser(userId));
 				//TimeUnit.SECONDS.sleep(5);
